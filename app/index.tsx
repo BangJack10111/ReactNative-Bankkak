@@ -1,8 +1,9 @@
 import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View ,ScrollView} from "react-native";
 
 export default function Index() {
   return (
+<ScrollView  style={{ margin : 20 }} >   
     <View style={styles.container}>
       <Text>Edit app/index.tsx to edit this screen.</Text>
       <Link href="/page2" style={styles.link}>
@@ -58,7 +59,25 @@ export default function Index() {
   <Text style={styles.linkText}>Ex12</Text>
 </Link>
 
+<Link href="/test-components" style={styles.link}>
+        <Text style={styles.linkText}>Test Components</Text>
+      </Link>
+
+<Link href="/test-greeting" style={styles.link}>
+        <Text style={styles.linkText}>Test Greeting</Text>
+      </Link>
+
+  <Link href="/travel" style={styles.link}>
+        <Text style={styles.linkText}>Travel</Text>
+      </Link>
+
+  <Link href="/resort" style={styles.link}>
+        <Text style={styles.linkText}>resort</Text>
+      </Link>
+
+
     </View>
+    </ScrollView> 
   );
 }
 
