@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function Bmi() {
-
   const [weight, setWeight] = useState("70");
   const [height, setHeight] = useState("170");
   const [bmi, setBmi] = useState("0");
@@ -11,39 +10,48 @@ export default function Bmi() {
   const onPressButton = () => {
     const w = parseFloat(weight);
     const h = parseFloat(height);
-
     let output = w / (((h / 100) * h) / 100);
     let bmiValue = output.toFixed(2);
 
     setBmi(bmiValue);
 
-    // ➤ คำนวณช่วงของ BMI
+
     let text = "";
-    if (output < 18.5) text = "Underweight";
-    else if (output < 25) text = "Normal";
-    else if (output < 30) text = "Overweight";
-    else if (output < 35) text = "Obese";
-    else text = "Extremely Obese";
+    if (output < 18.5) text = "เเห้ง";
+    else if (output < 25) text = "ปกติ";
+    else if (output < 30) text = "อ้วน";
+    else if (output < 35) text = "อ้วนจัดๆ";
+    else text = "ไขมันเดินดิน";
 
     setBmiText(text);
   };
 
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+        padding: 20,
+        backgroundColor: "#E8F6EF", // เขียวอ่อนมาก
+      }}
+    >
       {/* Weight */}
       <View
         style={{
           backgroundColor: "white",
           padding: 20,
           marginVertical: 10,
-          borderRadius: 10,
-          height: 150,
-          justifyContent: "space-around",
+          borderRadius: 15,
+          elevation: 3,
         }}
       >
-        <Text style={{ fontSize: 20 }}>Weight (kg.)</Text>
+        <Text style={{ fontSize: 22, color: "#1B5E20" }}>Weight (kg.)</Text>
         <TextInput
-          style={{ fontSize: 20 }}
+          style={{
+            fontSize: 22,
+            borderBottomWidth: 1,
+            borderBottomColor: "#4CAF50",
+            paddingVertical: 5,
+          }}
           keyboardType="numeric"
           value={weight}
           onChangeText={(newWeight) => setWeight(newWeight)}
@@ -56,52 +64,75 @@ export default function Bmi() {
           backgroundColor: "white",
           padding: 20,
           marginVertical: 10,
-          borderRadius: 10,
-          height: 150,
-          justifyContent: "space-around",
+          borderRadius: 15,
+          elevation: 3,
         }}
       >
-        <Text style={{ fontSize: 20 }}>Height (cm.)</Text>
+        <Text style={{ fontSize: 22, color: "#1B5E20" }}>Height (cm.)</Text>
         <TextInput
-          style={{ fontSize: 20 }}
+          style={{
+            fontSize: 22,
+            borderBottomWidth: 1,
+            borderBottomColor: "#4CAF50",
+            paddingVertical: 5,
+          }}
           keyboardType="numeric"
           value={height}
           onChangeText={(newHeight) => setHeight(newHeight)}
         />
       </View>
 
-      {/* ผลลัพธ์ BMI */}
+      {/* ค่าผลลัพธ์ */}
       <View style={{ flexDirection: "row", marginVertical: 10 }}>
         <View
           style={{
             flex: 1,
             backgroundColor: "white",
             marginRight: 10,
-            height: 100,
+            height: 120,
+            borderRadius: 15,
+            elevation: 3,
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <Text style={{ fontSize: 20 }}>{bmi}</Text>
+          <Text style={{ fontSize: 28, color: "#2E7D32" }}>{bmi}</Text>
         </View>
 
         <View
           style={{
             flex: 1,
             backgroundColor: "white",
-            height: 100,
+            height: 120,
+            borderRadius: 15,
+            elevation: 3,
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <Text style={{ fontSize: 20 }}>{bmiText}</Text>
+          <Text style={{ fontSize: 24, color: "#388E3C" }}>{bmiText}</Text>
         </View>
       </View>
 
       {/* ปุ่มคำนวณ */}
       <TouchableOpacity onPress={onPressButton}>
-        <View style={{ padding: 20, backgroundColor: "blue", borderRadius: 40 }}>
-          <Text style={{ fontSize: 30, textAlign: "center", color: "white" }}>
+        <View
+          style={{
+            padding: 20,
+            backgroundColor: "#2E7D32",
+            borderRadius: 50,
+            marginTop: 10,
+            elevation: 3,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 28,
+              textAlign: "center",
+              color: "white",
+              fontWeight: "bold",
+            }}
+          >
             Calculate
           </Text>
         </View>
