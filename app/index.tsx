@@ -102,6 +102,14 @@ export default function Index() {
     <Text style={styles.linkText}>Location Quiz</Text>
 </Link>
 
+<Link href="/ant" style={styles.link}>
+        <Text style={styles.linkText}>heros</Text>
+</Link>
+
+<Link href="/Charmander" style={styles.link}>
+        <Text style={styles.linkText}>herosกกก</Text>
+</Link>
+
 
 
 
